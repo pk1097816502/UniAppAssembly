@@ -1,17 +1,22 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
-		</view>
+		<Menu :menuList="menuList"></Menu>
 	</view>
 </template>
 
 <script>
+	import Menu from "@/components/Menu.vue";
+	
 	export default {
+		components:{Menu},
 		data() {
 			return {
-				title: 'Hello'
+				menuList:[
+					{
+						label:"数字键盘",
+						url:"/pages/components/keyNumber"
+					}
+				]
 			}
 		},
 		onLoad() {
@@ -23,30 +28,6 @@
 	}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
-
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+<style lnag="scss" scoped>
+	
 </style>

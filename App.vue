@@ -14,4 +14,6 @@
 
 <style>
 	/*每个页面公共css */
+	@import url("//at.alicdn.com/t/font_1854820_ndamh6d6m9a.css");
+	@import url("@/static/style/defalut.scss");
 </style>
