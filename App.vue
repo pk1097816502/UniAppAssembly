@@ -2,11 +2,13 @@
 	export default {
 		onLaunch: function() {
 			console.log('App Launch');
-			
+			this.$http.api({
+				url:"/api/login/login",
+				success:(res)=>{
+					console.log("/api/login/login获得的结果",res);
+				}
+			});
 			// #ifdef MP-WEIXIN
-				this.getCode((res)=>{
-					console.log("wx.login",res);
-				});
 			// #endif
 		},
 		onShow: function() {
@@ -16,27 +18,6 @@
 			console.log('App Hide')
 		},
 		methods:{
-			getCode(fun,provider=""){
-				if(provider==""){
-					uni.login({
-						success:(res) => {
-							console.log("uni.login",res);
-							if(typeof fun == "function"){
-								fun(res);
-							}
-						}
-					})
-				}else{
-					uni.login({
-						provider:provider,
-						success:(res) => {
-							if(typeof fun == "function"){
-								fun(res);
-							}
-						}
-					})
-				}
-			}
 		}
 	}
 </script>
